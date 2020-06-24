@@ -1,5 +1,7 @@
-package com;
+package com.controller;
 
+import com.model.Item;
+import com.dao.ItemDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class TestController {
-    private DAO dao;
+public class ItemController {
+    private ItemDAO dao;
 
     @Autowired
-    public TestController(DAO dao){
+    public ItemController(ItemDAO dao){
         this.dao = dao;
     }
 

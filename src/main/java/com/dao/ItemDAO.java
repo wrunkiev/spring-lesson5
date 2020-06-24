@@ -1,5 +1,6 @@
-package com;
+package com.dao;
 
+import com.model.Item;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,7 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class DAO {
+public class ItemDAO {
    @PersistenceContext
    private EntityManager entityManager;
 
