@@ -2,6 +2,7 @@ package com.config;
 
 import com.dao.ItemDAO;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("com")
 public class AppConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){

@@ -3,25 +3,39 @@ package com.controller;
 import com.model.Item;
 import com.dao.ItemDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.xml.ws.Response;
 
 @Controller
 public class ItemController {
+    @Autowired
     private ItemDAO dao;
 
-    @Autowired
     public ItemController(ItemDAO dao){
         this.dao = dao;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/save-item", produces = "text/plain")
+    @PostMapping("/item/save")
+    public Item save(@RequestBody Item item)throws Exception{
+        return dao.save(item);
+        //Item item = new Item();
+        //item.setDescription("spring basics spring gromcode");
+        //dao.save(item);
+        //return "ok";
+    }
+
+    /*@RequestMapping(method = RequestMethod.GET, value = "/save-item", produces = "text/plain")
     public @ResponseBody String saveOrder(){
         Item item = new Item();
         item.setDescription("spring basics spring gromcode");
         dao.save(item);
         return "ok";
-    }
+    }*/
+
+
+
 }

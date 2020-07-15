@@ -13,9 +13,30 @@ public class ItemDAO {
    @PersistenceContext
    private EntityManager entityManager;
 
-   public Item save(Item item){
+   public Item save(Item item) throws Exception{
+       checkItem(item);
        entityManager.persist(item);
        return item;
    }
 
+   public Item findById(long id){
+       return entityManager.find(Item.class, id);
+   }
+
+   public Item update(Item item) throws Exception{
+       checkItem(item);
+       entityManager.merge(item);
+       return item;
+   }
+
+   public void delete(long id){
+       Item item = entityManager.find(Item.class, id);
+       entityManager.detach(item);
+   }
+
+    private static void checkItem(Item item)throws Exception{
+        if(item == null){
+            throw new Exception("Exception in method ItemDAO.checkItem. Item can't be null.");
+        }
+    }
 }
