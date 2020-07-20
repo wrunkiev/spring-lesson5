@@ -4,6 +4,7 @@ import com.model.Item;
 import com.dao.ItemDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class ItemController {
         this.dao = dao;
     }
 
-    @PostMapping("/item/save")
+    @PostMapping(value = "/item/save", produces = MediaType.APPLICATION_JSON_VALUE)
     public Item save(@RequestBody Item item)throws Exception{
         return dao.save(item);
         //Item item = new Item();

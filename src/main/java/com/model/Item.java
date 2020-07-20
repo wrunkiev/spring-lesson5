@@ -11,6 +11,9 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ITEM_SEQ")
     private Long id;
 
+    @Column(name = "ITEM_NAME")
+    private String name;
+
     @Column(name = "ITEM_DESCRIPTION")
     private String description;
 
@@ -20,6 +23,14 @@ public class Item {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -34,6 +45,7 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
