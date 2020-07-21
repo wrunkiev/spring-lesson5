@@ -20,7 +20,7 @@ public class ItemController {
         this.dao = dao;
     }
 
-    @PostMapping(value = "/item/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/item/save", consumes = "application/json", produces = "application/json")
     public Item save(@RequestBody Item item)throws Exception{
         return dao.save(item);
         //Item item = new Item();
