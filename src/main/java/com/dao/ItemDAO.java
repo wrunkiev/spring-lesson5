@@ -31,7 +31,7 @@ public class ItemDAO {
 
    public void delete(long id){
        Item item = entityManager.find(Item.class, id);
-       entityManager.detach(item);
+       entityManager.remove(item);
    }
 
     private static void checkItem(Item item)throws Exception{
